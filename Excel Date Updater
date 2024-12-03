@@ -1,0 +1,2700 @@
+package ExcelDateUpdater;
+import org.testng.annotations.Test;
+import java.io.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class ExcelDateUpdater {
+
+    // Method to get the current date
+    public static String getCurrentDate() {
+        Date date = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
+        return dateFormat.format(date); // return date as a string in "yyyyMMdd" format
+    }
+
+    // Method to get the current date
+    public static String getCurrentDate2() {
+        Date date = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MM/DD/YYYY");
+        return dateFormat.format(date); // return date as a string in "yyyyMMdd" format
+    }
+
+// Tests from (1 to 9), Account Creation Batch Type
+    @Test(priority = 1)
+    public void Update_Account_Usage_Batch() {
+        // Correct the file path to .csv
+        String filePath = "D:\\Batches UAT Automation\\Account Creation Batch Type\\Update Account Usage Batch\\1 Update Account Usage COMM.csv";
+
+        File file = new File(filePath);
+        if (!file.exists()) {
+            System.out.println("File not found: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canRead()) {
+            System.out.println("Cannot read the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canWrite()) {
+            System.out.println("Cannot write to the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        System.out.println("File found and accessible: " + file.getAbsolutePath());
+
+        // Try to read, update, and write the CSV file
+        try {
+            // Read the CSV file line by line
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String line;
+            StringBuilder updatedFileContent = new StringBuilder();
+            int rowIndex = 0;  // Example: modify the first row
+
+            // Get current date as string
+            String currentDate = getCurrentDate();
+            System.out.println("Current Date: " + currentDate);
+
+            // Loop through the file and modify the relevant column
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(",");  // Split by comma for CSV format
+                if (rowIndex == 0) { // Assuming you want to modify the first row
+                    // Replace the second column (index 1) with the formatted date
+                    values[1] = currentDate;  // Set the current date in column 2 (index 1)
+                }
+
+                // Rebuild the line with updated values
+                updatedFileContent.append(String.join(",", values)).append("\n");
+                rowIndex++;
+            }
+
+            // Close the reader
+            br.close();
+
+            // Write the updated content back to the file
+            BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+            bw.write(updatedFileContent.toString());
+            bw.close();
+
+            System.out.println("CSV file updated successfully!");
+        } catch (Exception e) {
+            System.out.println("An error occurred: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    @Test(priority = 2)
+    public void Account_Creation_Without_Mega_Batch() {
+        // Correct the file path to .csv
+        String filePath = "D:\\Batches UAT Automation\\Account Creation Batch Type\\Account Creation Without Mega Batch\\16 Account Creation Without Mega FAWRYRTL.csv";
+
+        File file = new File(filePath);
+        if (!file.exists()) {
+            System.out.println("File not found: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canRead()) {
+            System.out.println("Cannot read the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canWrite()) {
+            System.out.println("Cannot write to the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        System.out.println("File found and accessible: " + file.getAbsolutePath());
+
+        // Try to read, update, and write the CSV file
+        try {
+            // Read the CSV file line by line
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String line;
+            StringBuilder updatedFileContent = new StringBuilder();
+            int rowIndex = 0;  // Example: modify the first row
+
+            // Get current date as string
+            String currentDate = getCurrentDate();
+            System.out.println("Current Date: " + currentDate);
+
+            // Loop through the file and modify the relevant column
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(",");  // Split by comma for CSV format
+                if (rowIndex == 0) { // Assuming you want to modify the first row
+                    // Replace the second column (index 1) with the formatted date
+                    values[1] = currentDate;  // Set the current date in column 2 (index 1)
+                }
+
+                // Rebuild the line with updated values
+                updatedFileContent.append(String.join(",", values)).append("\n");
+                rowIndex++;
+            }
+
+            // Close the reader
+            br.close();
+
+            // Write the updated content back to the file
+            BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+            bw.write(updatedFileContent.toString());
+            bw.close();
+
+            System.out.println("CSV file updated successfully!");
+        } catch (Exception e) {
+            System.out.println("An error occurred: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    @Test(priority = 3)
+    public void Account_Creation_Already_Exist_Batch() {
+        // Correct the file path to .csv
+        String filePath = "D:\\Batches UAT Automation\\Account Creation Batch Type\\Account Creation Already Exist Batch\\1 Account Creation Already Exist FAWRYRTL.csv";
+
+        File file = new File(filePath);
+        if (!file.exists()) {
+            System.out.println("File not found: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canRead()) {
+            System.out.println("Cannot read the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canWrite()) {
+            System.out.println("Cannot write to the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        System.out.println("File found and accessible: " + file.getAbsolutePath());
+
+        // Try to read, update, and write the CSV file
+        try {
+            // Read the CSV file line by line
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String line;
+            StringBuilder updatedFileContent = new StringBuilder();
+            int rowIndex = 0;  // Example: modify the first row
+
+            // Get current date as string
+            String currentDate = getCurrentDate();
+            System.out.println("Current Date: " + currentDate);
+
+            // Loop through the file and modify the relevant column
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(",");  // Split by comma for CSV format
+                if (rowIndex == 0) { // Assuming you want to modify the first row
+                    // Replace the second column (index 1) with the formatted date
+                    values[1] = currentDate;  // Set the current date in column 2 (index 1)
+                }
+
+                // Rebuild the line with updated values
+                updatedFileContent.append(String.join(",", values)).append("\n");
+                rowIndex++;
+            }
+
+            // Close the reader
+            br.close();
+
+            // Write the updated content back to the file
+            BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+            bw.write(updatedFileContent.toString());
+            bw.close();
+
+            System.out.println("CSV file updated successfully!");
+        } catch (Exception e) {
+            System.out.println("An error occurred: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    @Test(priority = 4)
+    public void Update_Account_Name_And_Desc_Batch() {
+        // Correct the file path to .csv
+        String filePath = "D:\\Batches UAT Automation\\Account Creation Batch Type\\Update Account Name & Desc Batch\\5 Update Account Name & Desc_All Test Cases.csv";
+
+        File file = new File(filePath);
+        if (!file.exists()) {
+            System.out.println("File not found: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canRead()) {
+            System.out.println("Cannot read the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canWrite()) {
+            System.out.println("Cannot write to the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        System.out.println("File found and accessible: " + file.getAbsolutePath());
+
+        // Try to read, update, and write the CSV file
+        try {
+            // Read the CSV file line by line
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String line;
+            StringBuilder updatedFileContent = new StringBuilder();
+            int rowIndex = 0;  // Example: modify the first row
+
+            // Get current date as string
+            String currentDate = getCurrentDate();
+            System.out.println("Current Date: " + currentDate);
+
+            // Loop through the file and modify the relevant column
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(",");  // Split by comma for CSV format
+                if (rowIndex == 0) { // Assuming you want to modify the first row
+                    // Replace the second column (index 1) with the formatted date
+                    values[1] = currentDate;  // Set the current date in column 2 (index 1)
+                }
+
+                // Rebuild the line with updated values
+                updatedFileContent.append(String.join(",", values)).append("\n");
+                rowIndex++;
+            }
+
+            // Close the reader
+            br.close();
+
+            // Write the updated content back to the file
+            BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+            bw.write(updatedFileContent.toString());
+            bw.close();
+
+            System.out.println("CSV file updated successfully!");
+        } catch (Exception e) {
+            System.out.println("An error occurred: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    @Test(priority = 5)
+    public void Update_Account_Push_Alert_Batch() {
+        // Correct the file path to .csv
+        String filePath = "D:\\Batches UAT Automation\\Account Creation Batch Type\\Update Account Push Alert Batch\\1 Update Account Push Alert FAWRYRTL.csv";
+
+        File file = new File(filePath);
+        if (!file.exists()) {
+            System.out.println("File not found: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canRead()) {
+            System.out.println("Cannot read the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canWrite()) {
+            System.out.println("Cannot write to the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        System.out.println("File found and accessible: " + file.getAbsolutePath());
+
+        // Try to read, update, and write the CSV file
+        try {
+            // Read the CSV file line by line
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String line;
+            StringBuilder updatedFileContent = new StringBuilder();
+            int rowIndex = 0;  // Example: modify the first row
+
+            // Get current date as string
+            String currentDate = getCurrentDate();
+            System.out.println("Current Date: " + currentDate);
+
+            // Loop through the file and modify the relevant column
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(",");  // Split by comma for CSV format
+                if (rowIndex == 0) { // Assuming you want to modify the first row
+                    // Replace the second column (index 1) with the formatted date
+                    values[1] = currentDate;  // Set the current date in column 2 (index 1)
+                }
+
+                // Rebuild the line with updated values
+                updatedFileContent.append(String.join(",", values)).append("\n");
+                rowIndex++;
+            }
+
+            // Close the reader
+            br.close();
+
+            // Write the updated content back to the file
+            BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+            bw.write(updatedFileContent.toString());
+            bw.close();
+
+            System.out.println("CSV file updated successfully!");
+        } catch (Exception e) {
+            System.out.println("An error occurred: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    @Test(priority = 6)
+    public void Update_Account_Customer_Category() {
+        // Correct the file path to .csv
+        String filePath = "D:\\Batches UAT Automation\\Account Creation Batch Type\\Update Account Customer Category Batch\\3 Update Account Customer Category_All Test Cases.csv";
+
+        File file = new File(filePath);
+        if (!file.exists()) {
+            System.out.println("File not found: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canRead()) {
+            System.out.println("Cannot read the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canWrite()) {
+            System.out.println("Cannot write to the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        System.out.println("File found and accessible: " + file.getAbsolutePath());
+
+        // Try to read, update, and write the CSV file
+        try {
+            // Read the CSV file line by line
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String line;
+            StringBuilder updatedFileContent = new StringBuilder();
+            int rowIndex = 0;  // Example: modify the first row
+
+            // Get current date as string
+            String currentDate = getCurrentDate();
+            System.out.println("Current Date: " + currentDate);
+
+            // Loop through the file and modify the relevant column
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(",");  // Split by comma for CSV format
+                if (rowIndex == 0) { // Assuming you want to modify the first row
+                    // Replace the second column (index 1) with the formatted date
+                    values[1] = currentDate;  // Set the current date in column 2 (index 1)
+                }
+
+                // Rebuild the line with updated values
+                updatedFileContent.append(String.join(",", values)).append("\n");
+                rowIndex++;
+            }
+
+            // Close the reader
+            br.close();
+
+            // Write the updated content back to the file
+            BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+            bw.write(updatedFileContent.toString());
+            bw.close();
+
+            System.out.println("CSV file updated successfully!");
+        } catch (Exception e) {
+            System.out.println("An error occurred: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    @Test(priority = 7)
+    public void Account_Creation_With_Mega_Debit() {
+        // Correct the file path to .csv
+        String filePath = "D:\\Batches UAT Automation\\Account Creation Batch Type\\Account Creation With Mega Batch\\8 Account Creation With Mega FAWRYRTL.csv";
+
+        File file = new File(filePath);
+        if (!file.exists()) {
+            System.out.println("File not found: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canRead()) {
+            System.out.println("Cannot read the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canWrite()) {
+            System.out.println("Cannot write to the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        System.out.println("File found and accessible: " + file.getAbsolutePath());
+
+        // Try to read, update, and write the CSV file
+        try {
+            // Read the CSV file line by line
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String line;
+            StringBuilder updatedFileContent = new StringBuilder();
+            int rowIndex = 0;  // Example: modify the first row
+
+            // Get current date as string
+            String currentDate = getCurrentDate();
+            System.out.println("Current Date: " + currentDate);
+
+            // Loop through the file and modify the relevant column
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(",");  // Split by comma for CSV format
+                if (rowIndex == 0) { // Assuming you want to modify the first row
+                    // Replace the second column (index 1) with the formatted date
+                    values[1] = currentDate;  // Set the current date in column 2 (index 1)
+                }
+
+                // Rebuild the line with updated values
+                updatedFileContent.append(String.join(",", values)).append("\n");
+                rowIndex++;
+            }
+
+            // Close the reader
+            br.close();
+
+            // Write the updated content back to the file
+            BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+            bw.write(updatedFileContent.toString());
+            bw.close();
+
+            System.out.println("CSV file updated successfully!");
+        } catch (Exception e) {
+            System.out.println("An error occurred: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    @Test(priority = 8)
+    public void Account_Creation_With_Mega_Credit() {
+        // Correct the file path to .csv
+        String filePath = "D:\\Batches UAT Automation\\Account Creation Batch Type\\Account Creation With Mega Batch\\709 Account Creation With Mega FCOLLECT.csv";
+
+        File file = new File(filePath);
+        if (!file.exists()) {
+            System.out.println("File not found: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canRead()) {
+            System.out.println("Cannot read the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canWrite()) {
+            System.out.println("Cannot write to the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        System.out.println("File found and accessible: " + file.getAbsolutePath());
+
+        // Try to read, update, and write the CSV file
+        try {
+            // Read the CSV file line by line
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String line;
+            StringBuilder updatedFileContent = new StringBuilder();
+            int rowIndex = 0;  // Example: modify the first row
+
+            // Get current date as string
+            String currentDate = getCurrentDate();
+            System.out.println("Current Date: " + currentDate);
+
+            // Loop through the file and modify the relevant column
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(",");  // Split by comma for CSV format
+                if (rowIndex == 0) { // Assuming you want to modify the first row
+                    // Replace the second column (index 1) with the formatted date
+                    values[1] = currentDate;  // Set the current date in column 2 (index 1)
+                }
+
+                // Rebuild the line with updated values
+                updatedFileContent.append(String.join(",", values)).append("\n");
+                rowIndex++;
+            }
+
+            // Close the reader
+            br.close();
+
+            // Write the updated content back to the file
+            BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+            bw.write(updatedFileContent.toString());
+            bw.close();
+
+            System.out.println("CSV file updated successfully!");
+        } catch (Exception e) {
+            System.out.println("An error occurred: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    @Test(priority = 9)
+    public void Update_Account_Terminal_Profile_Code() {
+        // Correct the file path to .csv
+        String filePath = "D:\\Batches UAT Automation\\Account Creation Batch Type\\Update Account Terminal Profile Code Batch\\1 Update Account Terminal Profile Code.csv";
+
+        File file = new File(filePath);
+        if (!file.exists()) {
+            System.out.println("File not found: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canRead()) {
+            System.out.println("Cannot read the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canWrite()) {
+            System.out.println("Cannot write to the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        System.out.println("File found and accessible: " + file.getAbsolutePath());
+
+        // Try to read, update, and write the CSV file
+        try {
+            // Read the CSV file line by line
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String line;
+            StringBuilder updatedFileContent = new StringBuilder();
+            int rowIndex = 0;  // Example: modify the first row
+
+            // Get current date as string
+            String currentDate = getCurrentDate();
+            System.out.println("Current Date: " + currentDate);
+
+            // Loop through the file and modify the relevant column
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(",");  // Split by comma for CSV format
+                if (rowIndex == 0) { // Assuming you want to modify the first row
+                    // Replace the second column (index 1) with the formatted date
+                    values[1] = currentDate;  // Set the current date in column 2 (index 1)
+                }
+
+                // Rebuild the line with updated values
+                updatedFileContent.append(String.join(",", values)).append("\n");
+                rowIndex++;
+            }
+
+            // Close the reader
+            br.close();
+
+            // Write the updated content back to the file
+            BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+            bw.write(updatedFileContent.toString());
+            bw.close();
+
+            System.out.println("CSV file updated successfully!");
+        } catch (Exception e) {
+            System.out.println("An error occurred: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+
+    // Tests from (10 & 11), Account Limits Batch Type
+    @Test(priority = 10)
+    public void Update_Main_Account_Limits() {
+        // Correct the file path to .csv
+        String filePath = "D:\\Batches UAT Automation\\Account Limits Batch Type\\1 Update Main Account Limits.csv";
+
+        File file = new File(filePath);
+        if (!file.exists()) {
+            System.out.println("File not found: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canRead()) {
+            System.out.println("Cannot read the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canWrite()) {
+            System.out.println("Cannot write to the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        System.out.println("File found and accessible: " + file.getAbsolutePath());
+
+        // Try to read, update, and write the CSV file
+        try {
+            // Read the CSV file line by line
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String line;
+            StringBuilder updatedFileContent = new StringBuilder();
+            int rowIndex = 0;  // Example: modify the first row
+
+            // Get current date as string
+            String currentDate = getCurrentDate();
+            System.out.println("Current Date: " + currentDate);
+
+            // Loop through the file and modify the relevant column
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(",");  // Split by comma for CSV format
+                if (rowIndex == 0) { // Assuming you want to modify the first row
+                    // Replace the second column (index 1) with the formatted date
+                    values[1] = currentDate;  // Set the current date in column 2 (index 1)
+                }
+
+                // Rebuild the line with updated values
+                updatedFileContent.append(String.join(",", values)).append("\n");
+                rowIndex++;
+            }
+
+            // Close the reader
+            br.close();
+
+            // Write the updated content back to the file
+            BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+            bw.write(updatedFileContent.toString());
+            bw.close();
+
+            System.out.println("CSV file updated successfully!");
+        } catch (Exception e) {
+            System.out.println("An error occurred: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    @Test(priority = 11)
+    public void Update_Sub_Account_Limits() {
+        // Correct the file path to .csv
+        String filePath = "D:\\Batches UAT Automation\\Account Limits Batch Type\\1 Update Sub Account Limits.csv";
+
+        File file = new File(filePath);
+        if (!file.exists()) {
+            System.out.println("File not found: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canRead()) {
+            System.out.println("Cannot read the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canWrite()) {
+            System.out.println("Cannot write to the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        System.out.println("File found and accessible: " + file.getAbsolutePath());
+
+        // Try to read, update, and write the CSV file
+        try {
+            // Read the CSV file line by line
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String line;
+            StringBuilder updatedFileContent = new StringBuilder();
+            int rowIndex = 0;  // Example: modify the first row
+
+            // Get current date as string
+            String currentDate = getCurrentDate();
+            System.out.println("Current Date: " + currentDate);
+
+            // Loop through the file and modify the relevant column
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(",");  // Split by comma for CSV format
+                if (rowIndex == 0) { // Assuming you want to modify the first row
+                    // Replace the second column (index 1) with the formatted date
+                    values[1] = currentDate;  // Set the current date in column 2 (index 1)
+                }
+
+                // Rebuild the line with updated values
+                updatedFileContent.append(String.join(",", values)).append("\n");
+                rowIndex++;
+            }
+
+            // Close the reader
+            br.close();
+
+            // Write the updated content back to the file
+            BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+            bw.write(updatedFileContent.toString());
+            bw.close();
+
+            System.out.println("CSV file updated successfully!");
+        } catch (Exception e) {
+            System.out.println("An error occurred: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    // Tests from (12 & 13), Account Status Batch Type
+    @Test(priority = 12)
+    public void Change_Main_Account_Status() {
+            // Correct the file path to .csv
+            String filePath = "D:\\Batches UAT Automation\\Account Status Batch Type\\5 Change Main Account Status.csv";
+
+            File file = new File(filePath);
+            if (!file.exists()) {
+                System.out.println("File not found: " + file.getAbsolutePath());
+                return;
+            }
+
+            if (!file.canRead()) {
+                System.out.println("Cannot read the file: " + file.getAbsolutePath());
+                return;
+            }
+
+            if (!file.canWrite()) {
+                System.out.println("Cannot write to the file: " + file.getAbsolutePath());
+                return;
+            }
+
+            System.out.println("File found and accessible: " + file.getAbsolutePath());
+
+            // Try to read, update, and write the CSV file
+            try {
+                // Read the CSV file line by line
+                BufferedReader br = new BufferedReader(new FileReader(file));
+                String line;
+                StringBuilder updatedFileContent = new StringBuilder();
+                int rowIndex = 0;  // To track the rows
+
+                // Get current date as string
+                String currentDate = getCurrentDate();
+                System.out.println("Current Date: " + currentDate);
+
+                // Loop through the file and modify the relevant columns for multiple rows
+                while ((line = br.readLine()) != null) {
+                    String[] values = line.split(",");  // Split by comma for CSV format
+
+                    // For Row 1 (index 0), update Column 2 (index 1) and Column 6 (index 5)
+                    if (rowIndex == 0) {
+                        if (values.length > 1) values[1] = currentDate;  // Set date in column 2 (index 1)
+                        if (values.length > 5) values[5] = currentDate;  // Set date in column 6 (index 5)
+                    }
+
+                    // For Row 2 (index 1), update Column 4 (index 3)
+                    if (rowIndex == 1) {
+                        if (values.length > 3) values[3] = currentDate;  // Set date in column 4 (index 3)
+                    }
+
+                    // Rebuild the line with updated values
+                    updatedFileContent.append(String.join(",", values)).append("\n");
+                    rowIndex++;
+                }
+
+                // Close the reader
+                br.close();
+
+                // Write the updated content back to the file
+                BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+                bw.write(updatedFileContent.toString());
+                bw.close();
+
+                System.out.println("CSV file updated successfully!");
+            } catch (Exception e) {
+                System.out.println("An error occurred: " + e.getMessage());
+                e.printStackTrace();
+            }
+        }
+
+    @Test(priority = 13)
+    public void Change_Sub_Account_Status() {
+        // Correct the file path to .csv
+        String filePath = "D:\\Batches UAT Automation\\Account Status Batch Type\\7 Change Sub Account Status.csv";
+
+        File file = new File(filePath);
+        if (!file.exists()) {
+            System.out.println("File not found: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canRead()) {
+            System.out.println("Cannot read the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canWrite()) {
+            System.out.println("Cannot write to the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        System.out.println("File found and accessible: " + file.getAbsolutePath());
+
+        // Try to read, update, and write the CSV file
+        try {
+            // Read the CSV file line by line
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String line;
+            StringBuilder updatedFileContent = new StringBuilder();
+            int rowIndex = 0;  // To track the rows
+
+            // Get current date as string
+            String currentDate = getCurrentDate();
+            System.out.println("Current Date: " + currentDate);
+
+            // Loop through the file and modify the relevant columns for multiple rows
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(",");  // Split by comma for CSV format
+
+                // For Row 1 (index 0), update Column 2 (index 1) and Column 6 (index 5)
+                if (rowIndex == 0) {
+                    if (values.length > 1) values[1] = currentDate;  // Set date in column 2 (index 1)
+                    if (values.length > 5) values[5] = currentDate;  // Set date in column 6 (index 5)
+                }
+
+                // For Row 2 (index 1), update Column 4 (index 3)
+                if (rowIndex == 1) {
+                    if (values.length > 3) values[3] = currentDate;  // Set date in column 4 (index 3)
+                }
+
+                // Rebuild the line with updated values
+                updatedFileContent.append(String.join(",", values)).append("\n");
+                rowIndex++;
+            }
+
+            // Close the reader
+            br.close();
+
+            // Write the updated content back to the file
+            BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+            bw.write(updatedFileContent.toString());
+            bw.close();
+
+            System.out.println("CSV file updated successfully!");
+        } catch (Exception e) {
+            System.out.println("An error occurred: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    // Tests from (14), Account Type Profile Batch Type
+    @Test(priority = 14)
+    public void ADD_And_DELETE_Account_Type_Profile() {
+        // Correct the file path to .csv
+        String filePath = "D:\\Batches UAT Automation\\Account Type Profile Batch Type\\3 ADD & DELETE Account Type Profile.csv";
+
+        File file = new File(filePath);
+        if (!file.exists()) {
+            System.out.println("File not found: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canRead()) {
+            System.out.println("Cannot read the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canWrite()) {
+            System.out.println("Cannot write to the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        System.out.println("File found and accessible: " + file.getAbsolutePath());
+
+        // Try to read, update, and write the CSV file
+        try {
+            // Read the CSV file line by line
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String line;
+            StringBuilder updatedFileContent = new StringBuilder();
+            int rowIndex = 0;  // Example: modify the first row
+
+            // Get current date as string
+            String currentDate = getCurrentDate();
+            System.out.println("Current Date: " + currentDate);
+
+            // Loop through the file and modify the relevant column
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(",");  // Split by comma for CSV format
+                if (rowIndex == 0) { // Assuming you want to modify the first row
+                    // Replace the second column (index 1) with the formatted date
+                    values[1] = currentDate;  // Set the current date in column 2 (index 1)
+                }
+
+                // Rebuild the line with updated values
+                updatedFileContent.append(String.join(",", values)).append("\n");
+                rowIndex++;
+            }
+
+            // Close the reader
+            br.close();
+
+            // Write the updated content back to the file
+            BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+            bw.write(updatedFileContent.toString());
+            bw.close();
+
+            System.out.println("CSV file updated successfully!");
+        } catch (Exception e) {
+            System.out.println("An error occurred: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+    // Tests from (15), Account Profile Batch Type
+    @Test(priority = 15)
+    public void Update_Account_Profile_Easy_Profile() {
+        // Correct the file path to .csv
+        String filePath = "D:\\Batches UAT Automation\\Account Profile Batch Type\\1 Update Account Profile_Easy Profile.csv";
+
+        File file = new File(filePath);
+        if (!file.exists()) {
+            System.out.println("File not found: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canRead()) {
+            System.out.println("Cannot read the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canWrite()) {
+            System.out.println("Cannot write to the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        System.out.println("File found and accessible: " + file.getAbsolutePath());
+
+        // Try to read, update, and write the CSV file
+        try {
+            // Read the CSV file line by line
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String line;
+            StringBuilder updatedFileContent = new StringBuilder();
+            int rowIndex = 0;  // Example: modify the first row
+
+            // Get current date as string
+            String currentDate = getCurrentDate();
+            System.out.println("Current Date: " + currentDate);
+
+            // Loop through the file and modify the relevant column
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(",");  // Split by comma for CSV format
+                if (rowIndex == 0) { // Assuming you want to modify the first row
+                    // Replace the second column (index 1) with the formatted date
+                    values[1] = currentDate;  // Set the current date in column 2 (index 1)
+                }
+
+                // Rebuild the line with updated values
+                updatedFileContent.append(String.join(",", values)).append("\n");
+                rowIndex++;
+            }
+
+            // Close the reader
+            br.close();
+
+            // Write the updated content back to the file
+            BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+            bw.write(updatedFileContent.toString());
+            bw.close();
+
+            System.out.println("CSV file updated successfully!");
+        } catch (Exception e) {
+            System.out.println("An error occurred: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+// Tests from (16 & 17), Least Cost Routing Batch Type
+@Test(priority = 16)
+public void ADD_And_DELETE_Acquiring_Least_Cost_Per_Account() {
+    // Correct the file path to .csv
+    String filePath = "D:\\Batches UAT Automation\\Least Cost Routing Batch Type\\2 ADD & DELETE Acquiring Least Cost Per Account.csv";
+
+    File file = new File(filePath);
+    if (!file.exists()) {
+        System.out.println("File not found: " + file.getAbsolutePath());
+        return;
+    }
+
+    if (!file.canRead()) {
+        System.out.println("Cannot read the file: " + file.getAbsolutePath());
+        return;
+    }
+
+    if (!file.canWrite()) {
+        System.out.println("Cannot write to the file: " + file.getAbsolutePath());
+        return;
+    }
+
+    System.out.println("File found and accessible: " + file.getAbsolutePath());
+
+    // Try to read, update, and write the CSV file
+    try {
+        // Read the CSV file line by line
+        BufferedReader br = new BufferedReader(new FileReader(file));
+        String line;
+        StringBuilder updatedFileContent = new StringBuilder();
+        int rowIndex = 0;  // Example: modify the first row
+
+        // Get current date as string
+        String currentDate = getCurrentDate();
+        System.out.println("Current Date: " + currentDate);
+
+        // Loop through the file and modify the relevant column
+        while ((line = br.readLine()) != null) {
+            String[] values = line.split(",");  // Split by comma for CSV format
+            if (rowIndex == 0) { // Assuming you want to modify the first row
+                // Replace the second column (index 1) with the formatted date
+                values[1] = currentDate;  // Set the current date in column 2 (index 1)
+            }
+
+            // Rebuild the line with updated values
+            updatedFileContent.append(String.join(",", values)).append("\n");
+            rowIndex++;
+        }
+
+        // Close the reader
+        br.close();
+
+        // Write the updated content back to the file
+        BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+        bw.write(updatedFileContent.toString());
+        bw.close();
+
+        System.out.println("CSV file updated successfully!");
+    } catch (Exception e) {
+        System.out.println("An error occurred: " + e.getMessage());
+        e.printStackTrace();
+    }
+}
+
+    @Test(priority = 17)
+    public void ADD_And_DELETE_Acquiring_Least_Cost() {
+        // Correct the file path to .csv
+        String filePath = "D:\\Batches UAT Automation\\Least Cost Routing Batch Type\\2 ADD & DELETE Acquiring Least Cost.csv";
+
+        File file = new File(filePath);
+        if (!file.exists()) {
+            System.out.println("File not found: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canRead()) {
+            System.out.println("Cannot read the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canWrite()) {
+            System.out.println("Cannot write to the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        System.out.println("File found and accessible: " + file.getAbsolutePath());
+
+        // Try to read, update, and write the CSV file
+        try {
+            // Read the CSV file line by line
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String line;
+            StringBuilder updatedFileContent = new StringBuilder();
+            int rowIndex = 0;  // Example: modify the first row
+
+            // Get current date as string
+            String currentDate = getCurrentDate();
+            System.out.println("Current Date: " + currentDate);
+
+            // Loop through the file and modify the relevant column
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(",");  // Split by comma for CSV format
+                if (rowIndex == 0) { // Assuming you want to modify the first row
+                    // Replace the second column (index 1) with the formatted date
+                    values[1] = currentDate;  // Set the current date in column 2 (index 1)
+                }
+
+                // Rebuild the line with updated values
+                updatedFileContent.append(String.join(",", values)).append("\n");
+                rowIndex++;
+            }
+
+            // Close the reader
+            br.close();
+
+            // Write the updated content back to the file
+            BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+            bw.write(updatedFileContent.toString());
+            bw.close();
+
+            System.out.println("CSV file updated successfully!");
+        } catch (Exception e) {
+            System.out.println("An error occurred: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+    // Tests from (18), CSP BTC Batch
+    @Test(priority = 18)
+    public void ADD_And_DELETE_CSP_BTC() {
+        // Correct the file path to .csv
+        String filePath = "D:\\Batches UAT Automation\\CSP BTC Batch Type\\2 ADD & DELETE CSP BTC TESTCSP.csv";
+
+        File file = new File(filePath);
+        if (!file.exists()) {
+            System.out.println("File not found: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canRead()) {
+            System.out.println("Cannot read the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canWrite()) {
+            System.out.println("Cannot write to the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        System.out.println("File found and accessible: " + file.getAbsolutePath());
+
+        // Try to read, update, and write the CSV file
+        try {
+            // Read the CSV file line by line
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String line;
+            StringBuilder updatedFileContent = new StringBuilder();
+            int rowIndex = 0;  // Example: modify the first row
+
+            // Get current date as string
+            String currentDate = getCurrentDate();
+            System.out.println("Current Date: " + currentDate);
+
+            // Loop through the file and modify the relevant column
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(",");  // Split by comma for CSV format
+                if (rowIndex == 0) { // Assuming you want to modify the first row
+                    // Replace the second column (index 1) with the formatted date
+                    values[1] = currentDate;  // Set the current date in column 2 (index 1)
+                }
+
+                // Rebuild the line with updated values
+                updatedFileContent.append(String.join(",", values)).append("\n");
+                rowIndex++;
+            }
+
+            // Close the reader
+            br.close();
+
+            // Write the updated content back to the file
+            BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+            bw.write(updatedFileContent.toString());
+            bw.close();
+
+            System.out.println("CSV file updated successfully!");
+        } catch (Exception e) {
+            System.out.println("An error occurred: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    // Tests from (19), Merchant Least Cost Routing Batch Type
+    @Test(priority = 19)
+    public void ADD_And_DELETE_Merchant_Least_Cost() {
+        // Correct the file path to .csv
+        String filePath = "D:\\Batches UAT Automation\\Merchant Least Cost Routing Batch Type\\2 ADD & DELETE Merchant Least Cost TESTCSP.csv";
+
+        File file = new File(filePath);
+        if (!file.exists()) {
+            System.out.println("File not found: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canRead()) {
+            System.out.println("Cannot read the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canWrite()) {
+            System.out.println("Cannot write to the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        System.out.println("File found and accessible: " + file.getAbsolutePath());
+
+        // Try to read, update, and write the CSV file
+        try {
+            // Read the CSV file line by line
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String line;
+            StringBuilder updatedFileContent = new StringBuilder();
+            int rowIndex = 0;  // Example: modify the first row
+
+            // Get current date as string
+            String currentDate = getCurrentDate();
+            System.out.println("Current Date: " + currentDate);
+
+            // Loop through the file and modify the relevant column
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(",");  // Split by comma for CSV format
+                if (rowIndex == 0) { // Assuming you want to modify the first row
+                    // Replace the second column (index 1) with the formatted date
+                    values[1] = currentDate;  // Set the current date in column 2 (index 1)
+                }
+
+                // Rebuild the line with updated values
+                updatedFileContent.append(String.join(",", values)).append("\n");
+                rowIndex++;
+            }
+
+            // Close the reader
+            br.close();
+
+            // Write the updated content back to the file
+            BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+            bw.write(updatedFileContent.toString());
+            bw.close();
+
+            System.out.println("CSV file updated successfully!");
+        } catch (Exception e) {
+            System.out.println("An error occurred: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    // Tests from (20 & 21), Terminal Status Batch Type
+    @Test(priority = 20)
+    public void ADD_Terminal() {
+        // Correct the file path to .csv
+        String filePath = "D:\\Batches UAT Automation\\Terminal Status Batch Type\\7 ADD Terminal.csv";
+
+        File file = new File(filePath);
+        if (!file.exists()) {
+            System.out.println("File not found: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canRead()) {
+            System.out.println("Cannot read the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canWrite()) {
+            System.out.println("Cannot write to the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        System.out.println("File found and accessible: " + file.getAbsolutePath());
+
+        // Try to read, update, and write the CSV file
+        try {
+            // Read the CSV file line by line
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String line;
+            StringBuilder updatedFileContent = new StringBuilder();
+            int rowIndex = 0;  // Example: modify the first row
+
+            // Get current date as string
+            String currentDate = getCurrentDate();
+            System.out.println("Current Date: " + currentDate);
+
+            // Loop through the file and modify the relevant column
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(",");  // Split by comma for CSV format
+                if (rowIndex == 0) { // Assuming you want to modify the first row
+                    // Replace the second column (index 1) with the formatted date
+                    values[1] = currentDate;  // Set the current date in column 2 (index 1)
+                }
+
+                // Rebuild the line with updated values
+                updatedFileContent.append(String.join(",", values)).append("\n");
+                rowIndex++;
+            }
+
+            // Close the reader
+            br.close();
+
+            // Write the updated content back to the file
+            BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+            bw.write(updatedFileContent.toString());
+            bw.close();
+
+            System.out.println("CSV file updated successfully!");
+        } catch (Exception e) {
+            System.out.println("An error occurred: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    @Test(priority = 21)
+    public void Change_Terminal_Status() {
+        // Correct the file path to .csv
+        String filePath = "D:\\Batches UAT Automation\\Terminal Status Batch Type\\2 Change Terminal Status.csv";
+
+        File file = new File(filePath);
+        if (!file.exists()) {
+            System.out.println("File not found: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canRead()) {
+            System.out.println("Cannot read the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canWrite()) {
+            System.out.println("Cannot write to the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        System.out.println("File found and accessible: " + file.getAbsolutePath());
+
+        // Try to read, update, and write the CSV file
+        try {
+            // Read the CSV file line by line
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String line;
+            StringBuilder updatedFileContent = new StringBuilder();
+            int rowIndex = 0;  // Example: modify the first row
+
+            // Get current date as string
+            String currentDate = getCurrentDate();
+            System.out.println("Current Date: " + currentDate);
+
+            // Loop through the file and modify the relevant column
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(",");  // Split by comma for CSV format
+                if (rowIndex == 0) { // Assuming you want to modify the first row
+                    // Replace the second column (index 1) with the formatted date
+                    values[1] = currentDate;  // Set the current date in column 2 (index 1)
+                }
+
+                // Rebuild the line with updated values
+                updatedFileContent.append(String.join(",", values)).append("\n");
+                rowIndex++;
+            }
+
+            // Close the reader
+            br.close();
+
+            // Write the updated content back to the file
+            BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+            bw.write(updatedFileContent.toString());
+            bw.close();
+
+            System.out.println("CSV file updated successfully!");
+        } catch (Exception e) {
+            System.out.println("An error occurred: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+// Tests from (22), Terminal Status Batch Type
+    @Test(priority = 22)
+    public void Upgrade_Terminal_Version() {
+        // Correct the file path to .csv
+        String filePath = "D:\\Batches UAT Automation\\Terminal Version Definition Batch Type\\1 Upgrade Terminal Version.csv";
+
+        File file = new File(filePath);
+        if (!file.exists()) {
+            System.out.println("File not found: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canRead()) {
+            System.out.println("Cannot read the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canWrite()) {
+            System.out.println("Cannot write to the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        System.out.println("File found and accessible: " + file.getAbsolutePath());
+
+        // Try to read, update, and write the CSV file
+        try {
+            // Read the CSV file line by line
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String line;
+            StringBuilder updatedFileContent = new StringBuilder();
+            int rowIndex = 0;  // Example: modify the first row
+
+            // Get current date as string
+            String currentDate = getCurrentDate();
+            System.out.println("Current Date: " + currentDate);
+
+            // Loop through the file and modify the relevant column
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(",");  // Split by comma for CSV format
+                if (rowIndex == 0) { // Assuming you want to modify the first row
+                    // Replace the second column (index 1) with the formatted date
+                    values[1] = currentDate;  // Set the current date in column 2 (index 1)
+                }
+
+                // Rebuild the line with updated values
+                updatedFileContent.append(String.join(",", values)).append("\n");
+                rowIndex++;
+            }
+
+            // Close the reader
+            br.close();
+
+            // Write the updated content back to the file
+            BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+            bw.write(updatedFileContent.toString());
+            bw.close();
+
+            System.out.println("CSV file updated successfully!");
+        } catch (Exception e) {
+            System.out.println("An error occurred: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+    // Tests from (23), Card Generation Batch Type
+    @Test(priority = 23)
+    public void Card_Generation() {
+        // Correct the file path to .csv
+        String filePath = "D:\\Batches UAT Automation\\Card Generation Batch Type\\Card Generation CARITAS2.csv";
+
+        File file = new File(filePath);
+        if (!file.exists()) {
+            System.out.println("File not found: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canRead()) {
+            System.out.println("Cannot read the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canWrite()) {
+            System.out.println("Cannot write to the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        System.out.println("File found and accessible: " + file.getAbsolutePath());
+
+        // Try to read, update, and write the CSV file
+        try {
+            // Read the CSV file line by line
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String line;
+            StringBuilder updatedFileContent = new StringBuilder();
+            int rowIndex = 0;  // Example: modify the first row
+
+            // Get current date as string
+            String currentDate = getCurrentDate();
+            System.out.println("Current Date: " + currentDate);
+
+            // Loop through the file and modify the relevant column
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(",");  // Split by comma for CSV format
+                if (rowIndex == 0) { // Assuming you want to modify the first row
+                    // Replace the second column (index 1) with the formatted date
+                    values[1] = currentDate;  // Set the current date in column 2 (index 1)
+                }
+
+                // Rebuild the line with updated values
+                updatedFileContent.append(String.join(",", values)).append("\n");
+                rowIndex++;
+            }
+
+            // Close the reader
+            br.close();
+
+            // Write the updated content back to the file
+            BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+            bw.write(updatedFileContent.toString());
+            bw.close();
+
+            System.out.println("CSV file updated successfully!");
+        } catch (Exception e) {
+            System.out.println("An error occurred: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    // Tests from (24), CC Account Creation Batch Type
+    @Test(priority = 24)
+    public void CC_Account_Creation() {
+        // Correct the file path to .csv
+        String filePath = "D:\\Batches UAT Automation\\CC Account Creation Batch Type\\3 CC Account Creation CBA.csv";
+
+        File file = new File(filePath);
+        if (!file.exists()) {
+            System.out.println("File not found: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canRead()) {
+            System.out.println("Cannot read the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canWrite()) {
+            System.out.println("Cannot write to the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        System.out.println("File found and accessible: " + file.getAbsolutePath());
+
+        // Try to read, update, and write the CSV file
+        try {
+            // Read the CSV file line by line
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String line;
+            StringBuilder updatedFileContent = new StringBuilder();
+            int rowIndex = 0;  // Example: modify the first row
+
+            // Get current date as string
+            String currentDate = getCurrentDate();
+            System.out.println("Current Date: " + currentDate);
+
+            // Loop through the file and modify the relevant column
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(",");  // Split by comma for CSV format
+                if (rowIndex == 0) { // Assuming you want to modify the first row
+                    // Replace the second column (index 1) with the formatted date
+                    values[1] = currentDate;  // Set the current date in column 2 (index 1)
+                }
+
+                // Rebuild the line with updated values
+                updatedFileContent.append(String.join(",", values)).append("\n");
+                rowIndex++;
+            }
+
+            // Close the reader
+            br.close();
+
+            // Write the updated content back to the file
+            BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+            bw.write(updatedFileContent.toString());
+            bw.close();
+
+            System.out.println("CSV file updated successfully!");
+        } catch (Exception e) {
+            System.out.println("An error occurred: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    // Tests from (25), Merchant Discount Rate Batch Type
+    @Test(priority = 25)
+    public void ADD_And_UPDATE_Merchant_Discount_Rate() {
+        // Correct the file path to .csv
+        String filePath = "D:\\Batches UAT Automation\\Merchant Discount Rate Batch Type\\2 ADD & UPDATE Merchant Discount Rate.csv";
+
+        File file = new File(filePath);
+        if (!file.exists()) {
+            System.out.println("File not found: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canRead()) {
+            System.out.println("Cannot read the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canWrite()) {
+            System.out.println("Cannot write to the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        System.out.println("File found and accessible: " + file.getAbsolutePath());
+
+        // Try to read, update, and write the CSV file
+        try {
+            // Read the CSV file line by line
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String line;
+            StringBuilder updatedFileContent = new StringBuilder();
+            int rowIndex = 0;  // Example: modify the first row
+
+            // Get current date as string
+            String currentDate = getCurrentDate();
+            System.out.println("Current Date: " + currentDate);
+
+            // Loop through the file and modify the relevant column
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(",");  // Split by comma for CSV format
+                if (rowIndex == 0) { // Assuming you want to modify the first row
+                    // Replace the second column (index 1) with the formatted date
+                    values[1] = currentDate;  // Set the current date in column 2 (index 1)
+                }
+
+                // Rebuild the line with updated values
+                updatedFileContent.append(String.join(",", values)).append("\n");
+                rowIndex++;
+            }
+
+            // Close the reader
+            br.close();
+
+            // Write the updated content back to the file
+            BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+            bw.write(updatedFileContent.toString());
+            bw.close();
+
+            System.out.println("CSV file updated successfully!");
+        } catch (Exception e) {
+            System.out.println("An error occurred: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    // Tests from (26), Account Profile Creation Batch Type
+    @Test(priority = 26)
+    public void Manage_Profile_Key_Values() {
+        // Correct the file path to .csv
+        String filePath = "D:\\Batches UAT Automation\\Account Profile Creation Batch Type\\42 Manage Profile Key Values TESTCSP.csv";
+
+        File file = new File(filePath);
+        if (!file.exists()) {
+            System.out.println("File not found: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canRead()) {
+            System.out.println("Cannot read the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canWrite()) {
+            System.out.println("Cannot write to the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        System.out.println("File found and accessible: " + file.getAbsolutePath());
+
+        // Try to read, update, and write the CSV file
+        try {
+            // Read the CSV file line by line
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String line;
+            StringBuilder updatedFileContent = new StringBuilder();
+            int rowIndex = 0;  // Example: modify the first row
+
+            // Get current date as string
+            String currentDate = getCurrentDate();
+            System.out.println("Current Date: " + currentDate);
+
+            // Loop through the file and modify the relevant column
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(",");  // Split by comma for CSV format
+                if (rowIndex == 0) { // Assuming you want to modify the first row
+                    // Replace the second column (index 1) with the formatted date
+                    values[1] = currentDate;  // Set the current date in column 2 (index 1)
+                }
+
+                // Rebuild the line with updated values
+                updatedFileContent.append(String.join(",", values)).append("\n");
+                rowIndex++;
+            }
+
+            // Close the reader
+            br.close();
+
+            // Write the updated content back to the file
+            BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+            bw.write(updatedFileContent.toString());
+            bw.close();
+
+            System.out.println("CSV file updated successfully!");
+        } catch (Exception e) {
+            System.out.println("An error occurred: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    // Tests from (27), CSP BTC Pool Account Batch Type
+    @Test(priority = 27)
+    public void ADD_And_DELETE_CSP_BTC_Pool_Account() {
+        // Correct the file path to .csv
+        String filePath = "D:\\Batches UAT Automation\\CSP BTC Pool Account Batch Type\\2 ADD & DELETE CSP BTC Pool Account.csv";
+
+        File file = new File(filePath);
+        if (!file.exists()) {
+            System.out.println("File not found: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canRead()) {
+            System.out.println("Cannot read the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canWrite()) {
+            System.out.println("Cannot write to the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        System.out.println("File found and accessible: " + file.getAbsolutePath());
+
+        // Try to read, update, and write the CSV file
+        try {
+            // Read the CSV file line by line
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String line;
+            StringBuilder updatedFileContent = new StringBuilder();
+            int rowIndex = 0;  // Example: modify the first row
+
+            // Get current date as string
+            String currentDate = getCurrentDate();
+            System.out.println("Current Date: " + currentDate);
+
+            // Loop through the file and modify the relevant column
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(",");  // Split by comma for CSV format
+                if (rowIndex == 0) { // Assuming you want to modify the first row
+                    // Replace the second column (index 1) with the formatted date
+                    values[1] = currentDate;  // Set the current date in column 2 (index 1)
+                }
+
+                // Rebuild the line with updated values
+                updatedFileContent.append(String.join(",", values)).append("\n");
+                rowIndex++;
+            }
+
+            // Close the reader
+            br.close();
+
+            // Write the updated content back to the file
+            BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+            bw.write(updatedFileContent.toString());
+            bw.close();
+
+            System.out.println("CSV file updated successfully!");
+        } catch (Exception e) {
+            System.out.println("An error occurred: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    // Tests from (28), Users Batch Type
+    @Test(priority = 28)
+    public void ADD_And_UPDATE_And_DELETE_Users() {
+        // Correct the file path to .csv
+        String filePath = "D:\\Batches UAT Automation\\Users Batch Type\\4 ADD & UPDATE & DELETE Users FAWRYRTL.csv";
+
+        File file = new File(filePath);
+        if (!file.exists()) {
+            System.out.println("File not found: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canRead()) {
+            System.out.println("Cannot read the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canWrite()) {
+            System.out.println("Cannot write to the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        System.out.println("File found and accessible: " + file.getAbsolutePath());
+
+        // Try to read, update, and write the CSV file
+        try {
+            // Read the CSV file line by line
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String line;
+            StringBuilder updatedFileContent = new StringBuilder();
+            int rowIndex = 0;  // Example: modify the first row
+
+            // Get current date as string
+            String currentDate = getCurrentDate();
+            System.out.println("Current Date: " + currentDate);
+
+            // Loop through the file and modify the relevant column
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(",");  // Split by comma for CSV format
+                if (rowIndex == 0) { // Assuming you want to modify the first row
+                    // Replace the second column (index 1) with the formatted date
+                    values[1] = currentDate;  // Set the current date in column 2 (index 1)
+                }
+
+                // Rebuild the line with updated values
+                updatedFileContent.append(String.join(",", values)).append("\n");
+                rowIndex++;
+            }
+
+            // Close the reader
+            br.close();
+
+            // Write the updated content back to the file
+            BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+            bw.write(updatedFileContent.toString());
+            bw.close();
+
+            System.out.println("CSV file updated successfully!");
+        } catch (Exception e) {
+            System.out.println("An error occurred: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+    // Tests from (29), Move Account Batch Type
+    @Test(priority = 29)
+    public void Move_Account() {
+        // Correct the file path to .csv
+        String filePath = "D:\\Batches UAT Automation\\Move Account Batch Type\\1 Move Account FAWRYRTL.csv";
+
+        File file = new File(filePath);
+        if (!file.exists()) {
+            System.out.println("File not found: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canRead()) {
+            System.out.println("Cannot read the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canWrite()) {
+            System.out.println("Cannot write to the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        System.out.println("File found and accessible: " + file.getAbsolutePath());
+
+        // Try to read, update, and write the CSV file
+        try {
+            // Read the CSV file line by line
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String line;
+            StringBuilder updatedFileContent = new StringBuilder();
+            int rowIndex = 0;  // Example: modify the first row
+
+            // Get current date as string
+            String currentDate = getCurrentDate();
+            System.out.println("Current Date: " + currentDate);
+
+            // Loop through the file and modify the relevant column
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(",");  // Split by comma for CSV format
+                if (rowIndex == 0) { // Assuming you want to modify the first row
+                    // Replace the second column (index 1) with the formatted date
+                    values[1] = currentDate;  // Set the current date in column 2 (index 1)
+                }
+
+                // Rebuild the line with updated values
+                updatedFileContent.append(String.join(",", values)).append("\n");
+                rowIndex++;
+            }
+
+            // Close the reader
+            br.close();
+
+            // Write the updated content back to the file
+            BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+            bw.write(updatedFileContent.toString());
+            bw.close();
+
+            System.out.println("CSV file updated successfully!");
+        } catch (Exception e) {
+            System.out.println("An error occurred: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+    // Tests from (30), Velocity Batch Type
+    @Test(priority = 30)
+    public void ADD_And_UPDATE_And_DELETE_Velocity() {
+        // Correct the file path to .csv
+        String filePath = "D:\\Batches UAT Automation\\Velocity Batch Type\\8 ADD & UPDATE & DELETE Velocity.csv";
+
+        File file = new File(filePath);
+        if (!file.exists()) {
+            System.out.println("File not found: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canRead()) {
+            System.out.println("Cannot read the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canWrite()) {
+            System.out.println("Cannot write to the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        System.out.println("File found and accessible: " + file.getAbsolutePath());
+
+        // Try to read, update, and write the CSV file
+        try {
+            // Read the CSV file line by line
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String line;
+            StringBuilder updatedFileContent = new StringBuilder();
+            int rowIndex = 0;  // Example: modify the first row
+
+            // Get current date as string
+            String currentDate = getCurrentDate();
+            System.out.println("Current Date: " + currentDate);
+
+            // Loop through the file and modify the relevant column
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(",");  // Split by comma for CSV format
+                if (rowIndex == 0) { // Assuming you want to modify the first row
+                    // Replace the second column (index 1) with the formatted date
+                    values[1] = currentDate;  // Set the current date in column 2 (index 1)
+                }
+
+                // Rebuild the line with updated values
+                updatedFileContent.append(String.join(",", values)).append("\n");
+                rowIndex++;
+            }
+
+            // Close the reader
+            br.close();
+
+            // Write the updated content back to the file
+            BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+            bw.write(updatedFileContent.toString());
+            bw.close();
+
+            System.out.println("CSV file updated successfully!");
+        } catch (Exception e) {
+            System.out.println("An error occurred: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    // Tests from (31 to 33), Sub Account Creation Batch Type
+    @Test(priority = 31)
+    public void Sub_Account_Creation_Airtime_37_Enable_ACH_Flag() {
+        // Correct the file path to .csv
+        String filePath = "D:\\Batches UAT Automation\\Sub Account Creation Batch Type\\1 Sub Account Creation Airtime 37_Enable ACH Flag.csv";
+
+        File file = new File(filePath);
+        if (!file.exists()) {
+            System.out.println("File not found: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canRead()) {
+            System.out.println("Cannot read the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canWrite()) {
+            System.out.println("Cannot write to the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        System.out.println("File found and accessible: " + file.getAbsolutePath());
+
+        // Try to read, update, and write the CSV file
+        try {
+            // Read the CSV file line by line
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String line;
+            StringBuilder updatedFileContent = new StringBuilder();
+            int rowIndex = 0;  // Example: modify the first row
+
+            // Get current date as string
+            String currentDate = getCurrentDate();
+            System.out.println("Current Date: " + currentDate);
+
+            // Loop through the file and modify the relevant column
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(",");  // Split by comma for CSV format
+                if (rowIndex == 0) { // Assuming you want to modify the first row
+                    // Replace the second column (index 1) with the formatted date
+                    values[1] = currentDate;  // Set the current date in column 2 (index 1)
+                }
+
+                // Rebuild the line with updated values
+                updatedFileContent.append(String.join(",", values)).append("\n");
+                rowIndex++;
+            }
+
+            // Close the reader
+            br.close();
+
+            // Write the updated content back to the file
+            BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+            bw.write(updatedFileContent.toString());
+            bw.close();
+
+            System.out.println("CSV file updated successfully!");
+        } catch (Exception e) {
+            System.out.println("An error occurred: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    @Test(priority = 32)
+    public void Sub_Account_Creation_B2B_70() {
+        // Correct the file path to .csv
+        String filePath = "D:\\Batches UAT Automation\\Sub Account Creation Batch Type\\1 Sub Account Creation B2B 70.csv";
+
+        File file = new File(filePath);
+        if (!file.exists()) {
+            System.out.println("File not found: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canRead()) {
+            System.out.println("Cannot read the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canWrite()) {
+            System.out.println("Cannot write to the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        System.out.println("File found and accessible: " + file.getAbsolutePath());
+
+        // Try to read, update, and write the CSV file
+        try {
+            // Read the CSV file line by line
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String line;
+            StringBuilder updatedFileContent = new StringBuilder();
+            int rowIndex = 0;  // Example: modify the first row
+
+            // Get current date as string
+            String currentDate = getCurrentDate();
+            System.out.println("Current Date: " + currentDate);
+
+            // Loop through the file and modify the relevant column
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(",");  // Split by comma for CSV format
+                if (rowIndex == 0) { // Assuming you want to modify the first row
+                    // Replace the second column (index 1) with the formatted date
+                    values[1] = currentDate;  // Set the current date in column 2 (index 1)
+                }
+
+                // Rebuild the line with updated values
+                updatedFileContent.append(String.join(",", values)).append("\n");
+                rowIndex++;
+            }
+
+            // Close the reader
+            br.close();
+
+            // Write the updated content back to the file
+            BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+            bw.write(updatedFileContent.toString());
+            bw.close();
+
+            System.out.println("CSV file updated successfully!");
+        } catch (Exception e) {
+            System.out.println("An error occurred: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+
+    @Test(priority = 33)
+    public void Sub_Account_Creation_Cashout_51() {
+        // Correct the file path to .csv
+        String filePath = "D:\\Batches UAT Automation\\Sub Account Creation Batch Type\\1 Sub Account Creation Cashout 51.csv";
+
+        File file = new File(filePath);
+        if (!file.exists()) {
+            System.out.println("File not found: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canRead()) {
+            System.out.println("Cannot read the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canWrite()) {
+            System.out.println("Cannot write to the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        System.out.println("File found and accessible: " + file.getAbsolutePath());
+
+        // Try to read, update, and write the CSV file
+        try {
+            // Read the CSV file line by line
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String line;
+            StringBuilder updatedFileContent = new StringBuilder();
+            int rowIndex = 0;  // Example: modify the first row
+
+            // Get current date as string
+            String currentDate = getCurrentDate();
+            System.out.println("Current Date: " + currentDate);
+
+            // Loop through the file and modify the relevant column
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(",");  // Split by comma for CSV format
+                if (rowIndex == 0) { // Assuming you want to modify the first row
+                    // Replace the second column (index 1) with the formatted date
+                    values[1] = currentDate;  // Set the current date in column 2 (index 1)
+                }
+
+                // Rebuild the line with updated values
+                updatedFileContent.append(String.join(",", values)).append("\n");
+                rowIndex++;
+            }
+
+            // Close the reader
+            br.close();
+
+            // Write the updated content back to the file
+            BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+            bw.write(updatedFileContent.toString());
+            bw.close();
+
+            System.out.println("CSV file updated successfully!");
+        } catch (Exception e) {
+            System.out.println("An error occurred: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    // Tests from (34 to 41), Overdraft Batch Type
+    @Test(priority = 34)
+    public void ADD_Program_Airtime_37() {
+        // Correct the file path to .csv
+        String filePath = "D:\\Batches UAT Automation\\Overdraft Batch Type\\Add Program Batch\\1 ADD Program Airtime 37.csv";
+
+        File file = new File(filePath);
+        if (!file.exists()) {
+            System.out.println("File not found: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canRead()) {
+            System.out.println("Cannot read the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canWrite()) {
+            System.out.println("Cannot write to the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        System.out.println("File found and accessible: " + file.getAbsolutePath());
+
+        // Try to read, update, and write the CSV file
+        try {
+            // Read the CSV file line by line
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String line;
+            StringBuilder updatedFileContent = new StringBuilder();
+            int rowIndex = 0;  // Example: modify the first row
+
+            // Get current date as string
+            String currentDate = getCurrentDate();
+            System.out.println("Current Date: " + currentDate);
+
+            // Loop through the file and modify the relevant column
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(",");  // Split by comma for CSV format
+                if (rowIndex == 0) { // Assuming you want to modify the first row
+                    // Replace the second column (index 1) with the formatted date
+                    values[1] = currentDate;  // Set the current date in column 2 (index 1)
+                }
+
+                // Rebuild the line with updated values
+                updatedFileContent.append(String.join(",", values)).append("\n");
+                rowIndex++;
+            }
+
+            // Close the reader
+            br.close();
+
+            // Write the updated content back to the file
+            BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+            bw.write(updatedFileContent.toString());
+            bw.close();
+
+            System.out.println("CSV file updated successfully!");
+        } catch (Exception e) {
+            System.out.println("An error occurred: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    @Test(priority = 35)
+    public void ADD_Program_B2B_70() {
+        // Correct the file path to .csv
+        String filePath = "D:\\Batches UAT Automation\\Overdraft Batch Type\\Add Program Batch\\1 ADD Program B2B 70.csv";
+
+        File file = new File(filePath);
+        if (!file.exists()) {
+            System.out.println("File not found: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canRead()) {
+            System.out.println("Cannot read the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canWrite()) {
+            System.out.println("Cannot write to the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        System.out.println("File found and accessible: " + file.getAbsolutePath());
+
+        // Try to read, update, and write the CSV file
+        try {
+            // Read the CSV file line by line
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String line;
+            StringBuilder updatedFileContent = new StringBuilder();
+            int rowIndex = 0;  // Example: modify the first row
+
+            // Get current date as string
+            String currentDate = getCurrentDate();
+            System.out.println("Current Date: " + currentDate);
+
+            // Loop through the file and modify the relevant column
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(",");  // Split by comma for CSV format
+                if (rowIndex == 0) { // Assuming you want to modify the first row
+                    // Replace the second column (index 1) with the formatted date
+                    values[1] = currentDate;  // Set the current date in column 2 (index 1)
+                }
+
+                // Rebuild the line with updated values
+                updatedFileContent.append(String.join(",", values)).append("\n");
+                rowIndex++;
+            }
+
+            // Close the reader
+            br.close();
+
+            // Write the updated content back to the file
+            BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+            bw.write(updatedFileContent.toString());
+            bw.close();
+
+            System.out.println("CSV file updated successfully!");
+        } catch (Exception e) {
+            System.out.println("An error occurred: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    @Test(priority = 36)
+    public void ADD_Program_Cashout_51() {
+        // Correct the file path to .csv
+        String filePath = "D:\\Batches UAT Automation\\Overdraft Batch Type\\Add Program Batch\\1 ADD Program Cashout 51.csv";
+
+        File file = new File(filePath);
+        if (!file.exists()) {
+            System.out.println("File not found: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canRead()) {
+            System.out.println("Cannot read the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canWrite()) {
+            System.out.println("Cannot write to the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        System.out.println("File found and accessible: " + file.getAbsolutePath());
+
+        // Try to read, update, and write the CSV file
+        try {
+            // Read the CSV file line by line
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String line;
+            StringBuilder updatedFileContent = new StringBuilder();
+            int rowIndex = 0;  // Example: modify the first row
+
+            // Get current date as string
+            String currentDate = getCurrentDate();
+            System.out.println("Current Date: " + currentDate);
+
+            // Loop through the file and modify the relevant column
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(",");  // Split by comma for CSV format
+                if (rowIndex == 0) { // Assuming you want to modify the first row
+                    // Replace the second column (index 1) with the formatted date
+                    values[1] = currentDate;  // Set the current date in column 2 (index 1)
+                }
+
+                // Rebuild the line with updated values
+                updatedFileContent.append(String.join(",", values)).append("\n");
+                rowIndex++;
+            }
+
+            // Close the reader
+            br.close();
+
+            // Write the updated content back to the file
+            BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+            bw.write(updatedFileContent.toString());
+            bw.close();
+
+            System.out.println("CSV file updated successfully!");
+        } catch (Exception e) {
+            System.out.println("An error occurred: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    @Test(priority = 37)
+    public void Link_BTC_Profile_Airtime_37() {
+        // Correct the file path to .csv
+        String filePath = "D:\\Batches UAT Automation\\Overdraft Batch Type\\Link Program Batch\\1 Link BTC Profile Airtime 37.csv";
+
+        File file = new File(filePath);
+        if (!file.exists()) {
+            System.out.println("File not found: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canRead()) {
+            System.out.println("Cannot read the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canWrite()) {
+            System.out.println("Cannot write to the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        System.out.println("File found and accessible: " + file.getAbsolutePath());
+
+        // Try to read, update, and write the CSV file
+        try {
+            // Read the CSV file line by line
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String line;
+            StringBuilder updatedFileContent = new StringBuilder();
+            int rowIndex = 0;  // Example: modify the first row
+
+            // Get current date as string
+            String currentDate = getCurrentDate();
+            System.out.println("Current Date: " + currentDate);
+
+            // Loop through the file and modify the relevant column
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(",");  // Split by comma for CSV format
+                if (rowIndex == 0) { // Assuming you want to modify the first row
+                    // Replace the second column (index 1) with the formatted date
+                    values[1] = currentDate;  // Set the current date in column 2 (index 1)
+                }
+
+                // Rebuild the line with updated values
+                updatedFileContent.append(String.join(",", values)).append("\n");
+                rowIndex++;
+            }
+
+            // Close the reader
+            br.close();
+
+            // Write the updated content back to the file
+            BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+            bw.write(updatedFileContent.toString());
+            bw.close();
+
+            System.out.println("CSV file updated successfully!");
+        } catch (Exception e) {
+            System.out.println("An error occurred: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    @Test(priority = 38)
+    public void Link_BTC_Profile_B2B_70() {
+        // Correct the file path to .csv
+        String filePath = "D:\\Batches UAT Automation\\Overdraft Batch Type\\Link Program Batch\\1 Link BTC Profile B2B 70.csv";
+
+        File file = new File(filePath);
+        if (!file.exists()) {
+            System.out.println("File not found: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canRead()) {
+            System.out.println("Cannot read the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canWrite()) {
+            System.out.println("Cannot write to the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        System.out.println("File found and accessible: " + file.getAbsolutePath());
+
+        // Try to read, update, and write the CSV file
+        try {
+            // Read the CSV file line by line
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String line;
+            StringBuilder updatedFileContent = new StringBuilder();
+            int rowIndex = 0;  // Example: modify the first row
+
+            // Get current date as string
+            String currentDate = getCurrentDate();
+            System.out.println("Current Date: " + currentDate);
+
+            // Loop through the file and modify the relevant column
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(",");  // Split by comma for CSV format
+                if (rowIndex == 0) { // Assuming you want to modify the first row
+                    // Replace the second column (index 1) with the formatted date
+                    values[1] = currentDate;  // Set the current date in column 2 (index 1)
+                }
+
+                // Rebuild the line with updated values
+                updatedFileContent.append(String.join(",", values)).append("\n");
+                rowIndex++;
+            }
+
+            // Close the reader
+            br.close();
+
+            // Write the updated content back to the file
+            BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+            bw.write(updatedFileContent.toString());
+            bw.close();
+
+            System.out.println("CSV file updated successfully!");
+        } catch (Exception e) {
+            System.out.println("An error occurred: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    @Test(priority = 39)
+    public void Link_BTC_Profile_Cashout_51() {
+        // Correct the file path to .csv
+        String filePath = "D:\\Batches UAT Automation\\Overdraft Batch Type\\Link Program Batch\\1 Link BTC Profile Cashout 51.csv";
+
+        File file = new File(filePath);
+        if (!file.exists()) {
+            System.out.println("File not found: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canRead()) {
+            System.out.println("Cannot read the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canWrite()) {
+            System.out.println("Cannot write to the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        System.out.println("File found and accessible: " + file.getAbsolutePath());
+
+        // Try to read, update, and write the CSV file
+        try {
+            // Read the CSV file line by line
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String line;
+            StringBuilder updatedFileContent = new StringBuilder();
+            int rowIndex = 0;  // Example: modify the first row
+
+            // Get current date as string
+            String currentDate = getCurrentDate();
+            System.out.println("Current Date: " + currentDate);
+
+            // Loop through the file and modify the relevant column
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(",");  // Split by comma for CSV format
+                if (rowIndex == 0) { // Assuming you want to modify the first row
+                    // Replace the second column (index 1) with the formatted date
+                    values[1] = currentDate;  // Set the current date in column 2 (index 1)
+                }
+
+                // Rebuild the line with updated values
+                updatedFileContent.append(String.join(",", values)).append("\n");
+                rowIndex++;
+            }
+
+            // Close the reader
+            br.close();
+
+            // Write the updated content back to the file
+            BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+            bw.write(updatedFileContent.toString());
+            bw.close();
+
+            System.out.println("CSV file updated successfully!");
+        } catch (Exception e) {
+            System.out.println("An error occurred: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    @Test(priority = 40)
+    public void ADD_Program_OVD() {
+        // Correct the file path to .csv
+        String filePath = "D:\\Batches UAT Automation\\Overdraft Batch Type\\Add & Link OVD\\1 ADD Program OVD.csv";
+
+        File file = new File(filePath);
+        if (!file.exists()) {
+            System.out.println("File not found: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canRead()) {
+            System.out.println("Cannot read the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canWrite()) {
+            System.out.println("Cannot write to the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        System.out.println("File found and accessible: " + file.getAbsolutePath());
+
+        // Try to read, update, and write the CSV file
+        try {
+            // Read the CSV file line by line
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String line;
+            StringBuilder updatedFileContent = new StringBuilder();
+            int rowIndex = 0;  // Example: modify the first row
+
+            // Get current date as string
+            String currentDate = getCurrentDate();
+            System.out.println("Current Date: " + currentDate);
+
+            // Loop through the file and modify the relevant column
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(",");  // Split by comma for CSV format
+                if (rowIndex == 0) { // Assuming you want to modify the first row
+                    // Replace the second column (index 1) with the formatted date
+                    values[1] = currentDate;  // Set the current date in column 2 (index 1)
+                }
+
+                // Rebuild the line with updated values
+                updatedFileContent.append(String.join(",", values)).append("\n");
+                rowIndex++;
+            }
+
+            // Close the reader
+            br.close();
+
+            // Write the updated content back to the file
+            BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+            bw.write(updatedFileContent.toString());
+            bw.close();
+
+            System.out.println("CSV file updated successfully!");
+        } catch (Exception e) {
+            System.out.println("An error occurred: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    @Test(priority = 41)
+    public void LINK_Program_OVD() {
+        // Correct the file path to .csv
+        String filePath = "D:\\Batches UAT Automation\\Overdraft Batch Type\\Add & Link OVD\\1 LINK Program OVD.csv";
+
+        File file = new File(filePath);
+        if (!file.exists()) {
+            System.out.println("File not found: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canRead()) {
+            System.out.println("Cannot read the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canWrite()) {
+            System.out.println("Cannot write to the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        System.out.println("File found and accessible: " + file.getAbsolutePath());
+
+        // Try to read, update, and write the CSV file
+        try {
+            // Read the CSV file line by line
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String line;
+            StringBuilder updatedFileContent = new StringBuilder();
+            int rowIndex = 0;  // Example: modify the first row
+
+            // Get current date as string
+            String currentDate = getCurrentDate();
+            System.out.println("Current Date: " + currentDate);
+
+            // Loop through the file and modify the relevant column
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(",");  // Split by comma for CSV format
+                if (rowIndex == 0) { // Assuming you want to modify the first row
+                    // Replace the second column (index 1) with the formatted date
+                    values[1] = currentDate;  // Set the current date in column 2 (index 1)
+                }
+
+                // Rebuild the line with updated values
+                updatedFileContent.append(String.join(",", values)).append("\n");
+                rowIndex++;
+            }
+
+            // Close the reader
+            br.close();
+
+            // Write the updated content back to the file
+            BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+            bw.write(updatedFileContent.toString());
+            bw.close();
+
+            System.out.println("CSV file updated successfully!");
+        } catch (Exception e) {
+            System.out.println("An error occurred: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+    
+//Test from (42), Merchant Batch Type
+    @Test(priority = 42)
+    public void ADD_New_Merchant() {
+        // Correct the file path to .csv
+        String filePath = "D:\\Batches UAT Automation\\Merchant Batch Type\\1 ADD New Merchant.csv";
+
+        File file = new File(filePath);
+        if (!file.exists()) {
+            System.out.println("File not found: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canRead()) {
+            System.out.println("Cannot read the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        if (!file.canWrite()) {
+            System.out.println("Cannot write to the file: " + file.getAbsolutePath());
+            return;
+        }
+
+        System.out.println("File found and accessible: " + file.getAbsolutePath());
+
+        // Try to read, update, and write the CSV file
+        try {
+            // Read the CSV file line by line
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String line;
+            StringBuilder updatedFileContent = new StringBuilder();
+            int rowIndex = 0;  // Example: modify the first row
+
+            // Get current date as string
+            String currentDate = getCurrentDate();
+            System.out.println("Current Date: " + currentDate);
+
+            // Loop through the file and modify the relevant column
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(",");  // Split by comma for CSV format
+                if (rowIndex == 0) { // Assuming you want to modify the first row
+                    // Replace the second column (index 1) with the formatted date
+                    values[1] = currentDate;  // Set the current date in column 2 (index 1)
+                }
+
+                // Rebuild the line with updated values
+                updatedFileContent.append(String.join(",", values)).append("\n");
+                rowIndex++;
+            }
+
+            // Close the reader
+            br.close();
+
+            // Write the updated content back to the file
+            BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+            bw.write(updatedFileContent.toString());
+            bw.close();
+
+            System.out.println("CSV file updated successfully!");
+        } catch (Exception e) {
+            System.out.println("An error occurred: " + e.getMessage());
+            e.printStackTrace();
+        }
+    
+}
