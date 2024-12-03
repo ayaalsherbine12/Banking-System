@@ -1,0 +1,115 @@
+package Accounts;
+import Base_Test.WebDriverSetup;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+import java.util.List;
+
+public class Search_Account {
+    WebDriver driver;
+    public WebDriverSetup webDriverSetup;
+
+    @BeforeClass
+    public void PreConditions() throws InterruptedException {
+//Pre_Conditions
+        webDriverSetup = new WebDriverSetup();
+        driver = webDriverSetup.initializeDriver();
+        webDriverSetup.performLogin(driver);
+//Tabs
+        WebElement Accounts_Tab = driver.findElement(By.cssSelector("p.menuItem > a[data-flexmenu='flexmenu1']"));
+        Actions actions = new Actions(driver);
+        Thread.sleep(1000);
+        actions.moveToElement(Accounts_Tab).perform();
+        Thread.sleep(1000);
+        WebElement Search_Account = driver.findElement(By.xpath("//*[@id=\"flexmenu1\"]/li[4]/a"));
+        actions.moveToElement(Search_Account).perform();
+        Search_Account.click();
+        Thread.sleep(1000);
+    }
+
+//Test_Cases
+@Test(priority = 1)
+public void With_Valid_Account_Code() throws InterruptedException {
+    driver.findElement(By.cssSelector("input[id=\"searchPOS:textSearchPOSID1\"]")).sendKeys("1974628");
+    Thread.sleep(1000);
+
+    driver.findElement(By.cssSelector("input[id=\"searchPOS:button1\"]")).click();
+//Assertions
+    // Table Locator
+    WebElement table = driver.findElement(By.cssSelector("table[id=\"searchPOS:tableEx1\"]"));
+    // Extract header
+    List<WebElement> headers = table.findElements(By.xpath("//*[@id=\"searchPOS:tableEx1\"]/thead"));
+    for (WebElement header : headers) {
+        List<WebElement> cells = header.findElements(By.tagName("th"));
+        for (int i = 0; i < cells.size(); i++) {
+            System.out.print("----------------------");
+        }
+        System.out.println();
+        System.out.print("|");
+        for (WebElement cell : cells) {
+            System.out.printf(" %-15s |", cell.getText());  // Adjust column width based on content
+        }
+        System.out.println();
+        // Print header separator after each row
+        for (int i = 0; i < cells.size(); i++) {
+            System.out.print("----------------------");
+        }
+        System.out.println();
+    }
+    // Extract rows
+    List<WebElement> rows = table.findElements(By.xpath("//*[@id=\"searchPOS:tableEx1\"]/tbody"));
+    for (WebElement row : rows) {
+        List<WebElement> cells = row.findElements(By.tagName("td"));
+        System.out.print("|");
+        for (WebElement cell : cells) {
+            System.out.printf(" %-15s |", cell.getText());
+        }
+        System.out.println();
+        for (int i = 0; i < cells.size(); i++) {
+            System.out.print("----------------------");
+        }
+        System.out.println();
+    }
+
+    //Print the number of headers and rows
+    System.out.println("Number of headers: " + headers.size());
+    System.out.println("Number of rows: " + rows.size());
+
+    if (headers.size() == 0 || rows.size() == 0) {
+        System.out.println("Table is empty or headers are not properly found.");
+    }
+    }
+
+    @Test(priority = 2)
+    public void With_Account_Code_Not_Exist() throws InterruptedException {
+        driver.findElement(By.cssSelector("input[id=\"searchPOS:textSearchPOSID1\"]")).clear();
+        Thread.sleep(1000);
+
+        String Account_Code = "565656";
+        driver.findElement(By.cssSelector("input[id=\"searchPOS:textSearchPOSID1\"]")).sendKeys(Account_Code);
+        Thread.sleep(1000);
+        System.out.println("Account Code: " + Account_Code);
+
+        driver.findElement(By.cssSelector("input[id=\"searchPOS:button1\"]")).click();
+//Assertions
+        try {
+            WebElement Error_Message = driver.findElement(By.cssSelector("span[id=\"searchPOS:errorMessage\"]"));
+            if (Error_Message.isDisplayed()) {
+                String MessageText = Error_Message.getText();
+                System.out.println("Result: " + MessageText);
+            }
+        } catch (NoSuchElementException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @AfterClass
+    public void quit(){
+        webDriverSetup.closeBrowser();
+    }
+}
